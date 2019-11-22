@@ -1,38 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setLoggedIn(false);
-    } else {
-      setLoggedIn(true);
-    }
-  }, []);
   
   return (
     <Nav>
       <h1>
-        <Link to="/">MUD CLIENT</Link>
+        <Link to="/">Treasure Hunt</Link>
       </h1>
-      <ul>
-        <li>
-          {loggedIn === false ? (
-            <Link to="/login">Login</Link>
-          ) : (
-            <Link to="/login" onClick={()=> localStorage.clear()}>Logout</Link>
-          )}
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/team">Team</Link>
-        </li>
-      </ul>
     </Nav>
   );
 }

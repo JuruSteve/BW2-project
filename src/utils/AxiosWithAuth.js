@@ -1,12 +1,12 @@
 import axios from "axios";
+import {baseURL, APIKey} from '../Config/index';
 
-export const axiosWithAuth = () => {
-  const token = localStorage.getItem("token");
-
+export const AxiosWithAuth = () => {
   return axios.create({
-    baseURL: "https://bw-django-game.herokuapp.com/api",
-    headers: {
-      Authorization: token
-    }
+    // baseURL: baseURL,
+    baseURL: 'https://jsonplaceholder.typicode.com',
+    // headers: {
+    //   Authorization: `Token ${APIKey}`
+    // }
   });
 };
